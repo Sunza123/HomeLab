@@ -10,11 +10,11 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=claim-xSUmNztyb7yrwhJDhngc
     volumes:
-      - /Plex-local:/config
-      - /var/lib/docker/volumes/tv-shows:/tv
-      - /var/lib/docker/volumes/cartoons:/cartoons
-      - /var/lib/docker/volumes/anime:/anime
-      - /var/lib/docker/volumes/movies:/movies
+      - /var/lib/docker/volumes/Plex/_data:/config
+      - /var/lib/docker/volumes/tv-shows/_data:/tv
+      - /var/lib/docker/volumes/cartoons/_data:/cartoons
+      - /var/lib/docker/volumes/anime/_data:/anime
+      - /var/lib/docker/volumes/movies/_data:/movies
     restart: unless-stopped
 
   sonarr:
@@ -25,11 +25,11 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/Sonarr:/config
-      - /var/lib/docker/volumes/cartoons:/tv/cartoons
-      - /var/lib/docker/volumes/tv-shows:/tv/shows
-      - /var/lib/docker/volumes/anime:/tv/anime
-      - /var/lib/docker/volumes/Complete_Downloads:/downloads
+      - /var/lib/docker/volumes/Sonarr/_data:/config
+      - /var/lib/docker/volumes/cartoons/_data:/tv/cartoons
+      - /var/lib/docker/volumes/tv-shows/_data:/tv/shows
+      - /var/lib/docker/volumes/anime/_data:/tv/anime
+      - /var/lib/docker/volumes/Complete_Downloads/_data:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -42,9 +42,9 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/Radarr:/config
-      - /var/lib/docker/volumes/movies:/movies
-      - /var/lib/docker/volumes/Complete_Downloads:/downloads
+      - /var/lib/docker/volumes/Radarr/_data:/config
+      - /var/lib/docker/volumes/movies/_data:/movies
+      - /var/lib/docker/volumes/Complete_Downloads/_data:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -55,7 +55,7 @@ services:
     environment:
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/Prowlarr:/config
+      - /var/lib/docker/volumes/Prowlarr/_data:/config
     ports:
       - 9696:9696
     restart: unless-stopped
