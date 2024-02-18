@@ -10,7 +10,7 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=claim-xSUmNztyb7yrwhJDhngc
     volumes:
-      - /var/lib/docker/volumes/Plex:/config
+      - /Plex-local:/config
       - /var/lib/docker/volumes/tv-shows:/tv
       - /var/lib/docker/volumes/cartoons:/cartoons
       - /var/lib/docker/volumes/anime:/anime
