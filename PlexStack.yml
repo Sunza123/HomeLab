@@ -59,6 +59,4 @@ services:
     ports:
       - 9696:9696
     restart: unless-stopped
-    #PGID and PUID are both 1000 by default, change if you have service accounts your containers use to access your media
-    #Volume mount points may need to be changed if you use NFS mounts instead of local storage
-    #Plex claim and timezone information will need to be modified to your specific instance
+  
