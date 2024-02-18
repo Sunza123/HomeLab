@@ -10,11 +10,11 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=claim-xSUmNztyb7yrwhJDhngc
     volumes:
-      - /var/lib/docker/volumes/plex:/config
-      - /var/lib/docker/volumes/tv-shows:/tv
-      - /var/lib/docker/volumes/cartoons:/cartoons
-      - /var/lib/docker/volumes/anime:/anime
-      - /var/lib/docker/volumes/movies:/movies
+      - /plex:/config
+      - /tv-shows:/tv
+      - /cartoons:/cartoons
+      - /anime:/anime
+      - /movies:/movies
     restart: unless-stopped
 
   sonarr:
@@ -25,11 +25,11 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/sonarr:/config
-      - /var/lib/docker/volumes/cartoons:/tv/cartoons
-      - /var/lib/docker/volumes/tv-shows:/tv/shows
-      - /var/lib/docker/volumes/anime:/tv/anime
-      - /var/lib/docker/volumes/completed_downloads:/downloads
+      - /sonarr:/config
+      - /cartoons:/tv/cartoons
+      - /tv-shows:/tv/shows
+      - /anime:/tv/anime
+      - /completed_downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -42,9 +42,9 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/radarr:/config
-      - /var/lib/docker/volumes/movies:/movies
-      - /var/lib/docker/volumes/completed_downloads:/downloads
+      - /radarr:/config
+      - /movies:/movies
+      - /completed_downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -55,7 +55,7 @@ services:
     environment:
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/prowlarr:/config
+      - /prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped
