@@ -10,7 +10,7 @@ services:
       - VERSION=docker
       - PLEX_CLAIM=claim-xSUmNztyb7yrwhJDhngc
     volumes:
-      - /plex:/config
+      - /Plex:/config
       - /tv-shows:/tv
       - /cartoons:/cartoons
       - /anime:/anime
@@ -25,11 +25,11 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /sonarr:/config
+      - /Sonarr:/config
       - /cartoons:/tv/cartoons
       - /tv-shows:/tv/shows
       - /anime:/tv/anime
-      - /completed_downloads:/downloads
+      - /Completed_Downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -42,9 +42,9 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /radarr:/config
+      - /Radarr:/config
       - /movies:/movies
-      - /completed_downloads:/downloads
+      - /Completed_Downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -55,7 +55,7 @@ services:
     environment:
       - TZ=America/Chicago
     volumes:
-      - /prowlarr:/config
+      - /Prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped
