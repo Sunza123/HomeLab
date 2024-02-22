@@ -8,13 +8,12 @@ services:
       - PGID=100
       - TZ=America/Chicago
       - VERSION=docker
-      - PLEX_CLAIM=claim-xSUmNztyb7yrwhJDhngc
     volumes:
-      - /var/lib/docker/volumes/Plex/_data:/config
-      - /var/lib/docker/volumes/tv-shows/_data:/tv
-      - /var/lib/docker/volumes/cartoons/_data:/cartoons
-      - /var/lib/docker/volumes/anime/_data:/anime
-      - /var/lib/docker/volumes/movies/_data:/movies
+      - plex:/config
+      - tv-shows:/tv
+      - cartoons:/cartoons
+      - anime:/anime
+      - movies:/movies
     restart: unless-stopped
 
   sonarr:
@@ -25,11 +24,11 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/Sonarr/_data:/config
-      - /var/lib/docker/volumes/cartoons/_data:/tv/cartoons
-      - /var/lib/docker/volumes/tv-shows/_data:/tv/shows
-      - /var/lib/docker/volumes/anime/_data:/tv/anime
-      - /var/lib/docker/volumes/Complete_Downloads/_data:/downloads
+      - sonarr:/config
+      - cartoons:/tv/cartoons
+      - tv-shows:/tv/shows
+      - anime:/tv/anime
+      - complete_downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -42,9 +41,9 @@ services:
       - PGID=100
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/Radarr/_data:/config
-      - /var/lib/docker/volumes/movies/_data:/movies
-      - /var/lib/docker/volumes/Complete_Downloads/_data:/downloads
+      - radarr:/config
+      - movies:/movies
+      - complete_downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -55,8 +54,46 @@ services:
     environment:
       - TZ=America/Chicago
     volumes:
-      - /var/lib/docker/volumes/Prowlarr/_data:/config
+      - prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped
-  
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1029
+      - PGID=100
+      - TZ=America/Chicago
+    volumes:
+      - bazarr:/config
+      - cartoons:/tv/cartoons
+      - tv-shows:/tv/shows
+      - anime:/tv/anime
+      - movies:/movies
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+
+volumes:
+  plex:
+    external: true
+  sonarr:
+    external: true
+  radarr:
+    external: true
+  prowlarr:
+    external: true
+  bazarr:
+    external: true
+  tv-shows:
+    external: true
+  cartoons:
+    external: true
+  anime:
+    external: true
+  movies:
+    external: true
+  complete_downloads:
+    external: true
