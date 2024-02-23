@@ -76,6 +76,19 @@ services:
     ports:
       - 6767:6767
     restart: unless-stopped
+  
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=1028
+      - PGID=100
+      - TZ=America/Chicago
+    volumes:
+      - overseerr:/config
+    ports:
+      - 5055:5055
+    restart: unless-stopped
 
 volumes:
   plex:
@@ -87,6 +100,8 @@ volumes:
   prowlarr:
     external: true
   bazarr:
+    external: true
+  overseerr:
     external: true
   tv-shows:
     external: true
