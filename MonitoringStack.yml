@@ -21,7 +21,6 @@ services:
     ports:
       - 3001:3001
     restart: always
-    version: '3.9'
 
   cloudflare-ddns:
     image: timothyjmiller/cloudflare-ddns:latest
