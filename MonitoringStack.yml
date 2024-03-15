@@ -33,7 +33,7 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - /YOUR/PATH/HERE/config.json:/config.json
+      - cloudflare_ddns:/config.json
     restart: unless-stopped
 
 volumes:
