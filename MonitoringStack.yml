@@ -22,24 +22,9 @@ services:
       - 3001:3001
     restart: always
 
-  cloudflare-ddns:
-    image: timothyjmiller/cloudflare-ddns:latest
-    container_name: cloudflare-ddns
-    security_opt:
-      - no-new-privileges:true
-    network_mode: 'host'
-    environment:
-      - PUID=1000
-      - PGID=1000
-    volumes:
-      - cloudflare_ddns:/config.json
-    restart: unless-stopped
-
 volumes:
   tautulli:
     external: true
   uptime-kuma:
-    external: true
-  cloudflare_ddns:
     external: true
 ...
