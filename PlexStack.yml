@@ -16,6 +16,7 @@ services:
       - cartoons:/cartoons
       - anime:/anime
       - movies:/movies
+      - media:/media
     restart: unless-stopped
 
   sonarr:
@@ -113,5 +114,7 @@ volumes:
   movies:
     external: true
   complete_downloads:
+    external: true
+  media:
     external: true
 ...
