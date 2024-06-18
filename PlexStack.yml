@@ -108,14 +108,14 @@ volumes:
     external: true
   overseerr:
     external: true
-  tv-shows:
-    external: true
-  cartoons:
-    external: true
-  anime:
-    external: true
-  movies:
-    external: true
+  #tv-shows:
+    #external: true
+  #cartoons:
+    #external: true
+  #anime:
+    #external: true
+  #movies:
+    #external: true
   complete_downloads:
     external: true
   media:
