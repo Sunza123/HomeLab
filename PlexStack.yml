@@ -12,7 +12,7 @@ services:
       #- PLEX_CLAIM= #optional
     volumes:
       - plex:/config
-      - tv-shows:/tv
+      - tv-shows:/tv #change the name of this to shows
       - cartoons:/cartoons
       - anime:/anime
       - movies:/movies
@@ -28,7 +28,7 @@ services:
       - TZ=America/Chicago
     volumes:
       - sonarr:/config
-      - cartoons:/tv/cartoons
+      - cartoons:/tv/cartoons #clean up container paths. Shouldn't need /tv/shows, just make it /shows, /cartoons /anime. Do this for Bazarr too
       - tv-shows:/tv/shows
       - anime:/tv/anime
       - media:/media
