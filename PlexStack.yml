@@ -12,10 +12,10 @@ services:
       #- PLEX_CLAIM= #optional
     volumes:
       - plex:/config
-      #- tv-shows:/tv
-      #- cartoons:/cartoons
-      #- anime:/anime
-      #- movies:/movies
+      - tv-shows:/tv
+      - cartoons:/cartoons
+      - anime:/anime
+      - movies:/movies
       - media:/media
     restart: unless-stopped
 
@@ -28,9 +28,9 @@ services:
       - TZ=America/Chicago
     volumes:
       - sonarr:/config
-      #- cartoons:/tv/cartoons
-      #- tv-shows:/tv/shows
-      #- anime:/tv/anime
+      - cartoons:/tv/cartoons
+      - tv-shows:/tv/shows
+      - anime:/tv/anime
       - media:/media
       - complete_downloads:/downloads
     ports:
@@ -46,7 +46,7 @@ services:
       - TZ=America/Chicago
     volumes:
       - radarr:/config
-      #- movies:/movies
+      - movies:/movies
       - media:/media
       - complete_downloads:/downloads
     ports:
@@ -73,10 +73,10 @@ services:
       - TZ=America/Chicago
     volumes:
       - bazarr:/config
-      #- cartoons:/tv/cartoons
-      #- tv-shows:/tv/shows
-      #- anime:/tv/anime
-      #- movies:/movies
+      - cartoons:/tv/cartoons
+      - tv-shows:/tv/shows
+      - anime:/tv/anime
+      - movies:/movies
       - media:/media
     ports:
       - 6767:6767
@@ -108,14 +108,14 @@ volumes:
     external: true
   overseerr:
     external: true
-  #tv-shows:
-    #external: true
-  #cartoons:
-    #external: true
-  #anime:
-    #external: true
-  #movies:
-    #external: true
+  tv-shows:
+    external: true
+  cartoons:
+    external: true
+  anime:
+    external: true
+  movies:
+    external: true
   complete_downloads:
     external: true
   media:
