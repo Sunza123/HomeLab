@@ -16,7 +16,6 @@ services:
       - cartoons:/cartoons
       - anime:/anime
       - movies:/movies
-      - media:/media
     restart: unless-stopped
 
   sonarr:
@@ -31,7 +30,6 @@ services:
       - cartoons:/tv/cartoons #clean up container paths. Shouldn't need /tv/shows, just make it /shows, /cartoons /anime. Do this for Bazarr too
       - tv-shows:/tv/shows
       - anime:/tv/anime
-      - media:/media
       - complete_downloads:/downloads
     ports:
       - 8989:8989
@@ -47,7 +45,6 @@ services:
     volumes:
       - radarr:/config
       - movies:/movies
-      - media:/media
       - complete_downloads:/downloads
     ports:
       - 7878:7878
@@ -77,7 +74,6 @@ services:
       - tv-shows:/tv/shows
       - anime:/tv/anime
       - movies:/movies
-      - media:/media
     ports:
       - 6767:6767
     restart: unless-stopped
@@ -117,7 +113,5 @@ volumes:
   movies:
     external: true
   complete_downloads:
-    external: true
-  media:
     external: true
 ...
