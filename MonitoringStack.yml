@@ -4,8 +4,8 @@ services:
     image: lscr.io/linuxserver/tautulli:latest
     container_name: tautulli
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${{ secrets.monitoring_puid }}
+      - PGID=${{ secrets.monitoring_pgid }}
       - TZ=America/Chicago
     volumes:
       - tautulli:/config
@@ -26,8 +26,8 @@ services:
     image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     environment:
-      PUID: 1000
-      PGID: 1000
+      - PUID=${{ secrets.monitoring_puid }}
+      - PGID=${{ secrets.monitoring_pgid }}
     ports:
       - 3000:3000
     volumes:
