@@ -1,0 +1,43 @@
+- Developer:
+    - Github:
+        - abbr: GH
+          href: https://github.com/
+          icon: github.png
+    - LinuxServer Fleet:
+        - abbr: LF
+          href: https://fleet.linuxserver.io/
+          icon: 'linuxserver-io.png'
+    - CloudFlare Dashboard:
+        - abbr: CF
+          href: https://dash.cloudflare.com/login?redirect_uri=https%3A%2F%2Fone.dash.cloudflare.com%2F&state=8b1b10a0-6c9e-4188-8929-a51d26b6723c|https://one.dash.cloudflare.com/
+          icon: cloudflare.png
+- Social:
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com/
+          icon: reddit.png
+    - LinkedIn:
+        - abbr: LI
+          href: https://www.linkedin.com/feed/
+          icon: linkedin.png
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/
+          icon: youtube.png
+    - Twitch:
+        - abbr: TW
+          href: https://www.twitch.tv/
+          icon: twitch.png
+
+- Magic the Gathering:
+    - Moxfield:
+        - abbr: MF
+          href: https://www.moxfield.com/
+    - Scryfall:
+        - abbr: SF
+          href: https://scryfall.com/advanced
+    - EDHRec:
+        - abbr: EDHR
+          href: https://edhrec.com/
