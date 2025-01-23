@@ -1,0 +1,10 @@
+theme: dark
+color: gray
+hideVersion: true
+headerStyle: boxed
+hideErrors: true
+
+layout:
+  Media Automation:
+    style: row
+    columns: 3
