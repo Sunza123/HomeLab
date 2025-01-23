@@ -1,0 +1,128 @@
+- Media Automation:
+    - Plex:
+        href: "{{HOMEPAGE_VAR_PLEX_IP}}"
+        icon: plex.png
+        description: Media server
+        widget:
+          type: plex
+          url: "{{HOMEPAGE_VAR_PLEX_IP}}"
+          key: "{{HOMEPAGE_VAR_PLEX_KEY}}"
+    - Sonarr:
+        href: "{{HOMEPAGE_VAR_SONARR_IP}}"
+        icon: sonarr.png
+        description: Series management
+        widget:
+          type: sonarr
+          url: "{{HOMEPAGE_VAR_SONARR_IP}}"
+          key: "{{HOMEPAGE_VAR_SONARR_KEY}}"
+          enableQueue: false # optional
+    - Radarr:
+        href: "{{HOMEPAGE_VAR_RADARR_IP}}"
+        icon: radarr.png
+        description: Movie management
+        widget:
+          type: radarr
+          url: "{{HOMEPAGE_VAR_RADARR_IP}}"
+          key: "{{HOMEPAGE_VAR_RADARR_KEY}}"
+          enableQueue: false # optional
+    - Prowlarr:
+        href: "{{HOMEPAGE_VAR_PROWLARR_IP}}"
+        icon: prowlarr.png
+        description: Indexer management
+        widget:
+          type: prowlarr
+          url: "{{HOMEPAGE_VAR_PROWLARR_IP}}"
+          key: "{{HOMEPAGE_VAR_PROWLARR_KEY}}"
+    - Bazarr:
+        href: "{{HOMEPAGE_VAR_BAZARR_IP}}"
+        icon: bazarr.png
+        description: Subtitle management
+        widget:
+          type: bazarr
+          url: "{{HOMEPAGE_VAR_BAZARR_IP}}"
+          key: "{{HOMEPAGE_VAR_BAZARR_KEY}}"
+    - Overseerr:
+        href: "{{HOMEPAGE_VAR_OVERSEERR_IP}}"
+        icon: overseerr.png
+        description: Media requesting
+        widget:
+          type: overseerr
+          url: "{{HOMEPAGE_VAR_OVERSEERR_IP}}"
+          key: "{{HOMEPAGE_VAR_OVERSEERR_KEY}}"
+
+- Downloads:
+    - SABNZB:
+        href: "{{HOMEPAGE_VAR_SABNZB_IP}}"
+        icon: sabnzbd.png
+        description: NZB Downloader
+        widget:
+          type: sabnzbd
+          url: "{{HOMEPAGE_VAR_SABNZB_IP}}"
+          key: "{{HOMEPAGE_VAR_SABNZB_KEY}}"
+    - NZBGet:
+        href: "{{HOMEPAGE_VAR_NZBGET_IP}}"
+        icon: nzbget.png
+        description: NZB Downloader
+        widget:
+          type: nzbget
+          url: "{{HOMEPAGE_VAR_NZBGET_IP}}"
+          username: "{{HOMEPAGE_VAR_NZBGET_USER}}"
+          password: "{{HOMEPAGE_VAR_NZBGET_PASS}}"
+    - Deluge:
+        href: "{{HOMEPAGE_VAR_DELUGE_IP}}"
+        icon: deluge.png
+        description: Torrent Downloader
+        widget:
+          type: deluge
+          url: "{{HOMEPAGE_VAR_DELUGE_IP}}"
+          password: "{{HOMEPAGE_VAR_DELUGE_PASS}}"
+
+- Servers:
+    - New-Chungus:
+        href: "{{HOMEPAGE_VAR_PROXMOX_IP}}"
+        icon: proxmox.png
+        description: Server for managing virtual machines.
+        widget:
+          type: proxmox
+          url: "{{HOMEPAGE_VAR_PROXMOX_IP}}"
+          username: "{{HOMEPAGE_VAR_PROXMOX_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXMOX_PASS}}"
+          #node: pve-1 # optional
+    - Portainer:
+        href: "{{HOMEPAGE_VAR_PORTAINER_IP}}"
+        icon: portainer.png
+        description: Server for managing containers.
+        widget:
+          type: portainer
+          url: "{{HOMEPAGE_VAR_PORTAINER_IP}}"
+          env: 2
+          key: "{{HOMEPAGE_VAR_PORTAINER_KEY}}"
+    - Truenas:
+        href: "{{HOMEPAGE_VAR_TRUENAS_IP}}"
+        icon: truenas.png
+        description: Server for managing storage.
+        widget:
+          type: truenas
+          url: "{{HOMEPAGE_VAR_TRUENAS_IP}}"
+          #username: user # not required if using api key
+          #password: pass # not required if using api key
+          key: "{{HOMEPAGE_VAR_TRUENAS_KEY}}"
+          enablePools: true
+
+- Monitoring:
+    - Tautulli:
+        href: "{{HOMEPAGE_VAR_TAUTULLI_IP}}"
+        icon: tautulli.png
+        description: Plex server monitoring dashboard.
+        widget:
+          type: tautulli
+          url: "{{HOMEPAGE_VAR_TAUTULLI_IP}}"
+          key: "{{HOMEPAGE_VAR_TAUTULLI_KEY}}"
+    - Uptime-Kuma:
+        href: "{{HOMEPAGE_VAR_UPTIMEKUMA_IP}}"
+        icon: uptime-kuma.png
+        description: Uptime monitoring dashboard
+        widget:
+          type: uptimekuma
+          url: "{{HOMEPAGE_VAR_UPTIMEKUMA_IP}}"
+          slug: servers
