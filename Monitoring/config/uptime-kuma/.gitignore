@@ -1,0 +1,4 @@
+# Used to create empty folder, Ignores all files in the directory except the gitignore
+*
+
+!.gitignore

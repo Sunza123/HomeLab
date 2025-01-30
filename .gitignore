@@ -1,3 +1,2 @@
 # Ignore the Environment Variables files
 *.env
-*.empty
