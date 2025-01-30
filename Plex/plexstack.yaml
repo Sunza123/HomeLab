@@ -5,14 +5,15 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=${{ secrets.plex_puid }}
-      - PGID=${{ secrets.plex_pgid }}
+      - PUID= $PUID
+      - PGID= $PGID
       - TZ=America/Chicago
       - VERSION=docker
-      #- PLEX_CLAIM= #optional
+      #- PLEX_CLAIM= $PLEX_CLAIM #optional, add the claim token here if you have it
+    env_file: plexstack.env
     volumes:
-      - plex:/config
-      - tv-shows:/tv #change the name of this to shows
+      - ./config/plex:/config
+      - shows:/tv
       - cartoons:/cartoons
       - anime:/anime
       - movies:/movies
@@ -22,13 +23,14 @@ services:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
-      - PUID=${{ secrets.plex_puid }}
-      - PGID=${{ secrets.plex_pgid }}
+      - PUID= $PUID
+      - PGID= $PGID
       - TZ=America/Chicago
+    env_file: plexstack.env
     volumes:
-      - sonarr:/config
+      - ./config/sonarr:/config
       - cartoons:/tv/cartoons #clean up container paths. Shouldn't need /tv/shows, just make it /shows, /cartoons /anime. Do this for Bazarr too
-      - tv-shows:/tv/shows
+      - shows:/tv/shows
       - anime:/tv/anime
       - complete_downloads:/downloads
     ports:
@@ -39,11 +41,12 @@ services:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     environment:
-      - PUID=${{ secrets.plex_puid }}
-      - PGID=${{ secrets.plex_pgid }}
+      - PUID= $PUID
+      - PGID= $PGID
       - TZ=America/Chicago
+    env_file: plexstack.env
     volumes:
-      - radarr:/config
+      - ./config/radarr:/config
       - movies:/movies
       - complete_downloads:/downloads
     ports:
@@ -55,8 +58,9 @@ services:
     container_name: prowlarr
     environment:
       - TZ=America/Chicago
+    env_file: plexstack.env
     volumes:
-      - prowlarr:/config
+      - ./config/prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped
@@ -65,13 +69,14 @@ services:
     image: lscr.io/linuxserver/bazarr:latest
     container_name: bazarr
     environment:
-      - PUID=${{ secrets.plex_puid }}
-      - PGID=${{ secrets.plex_pgid }}
+      - PUID= $PUID
+      - PGID= $PGID
       - TZ=America/Chicago
+    env_file: plexstack.env
     volumes:
-      - bazarr:/config
+      - ./config/bazarr:/config
       - cartoons:/tv/cartoons
-      - tv-shows:/tv/shows
+      - shows:/tv/shows
       - anime:/tv/anime
       - movies:/movies
     ports:
@@ -82,29 +87,18 @@ services:
     image: lscr.io/linuxserver/overseerr:latest
     container_name: overseerr
     environment:
-      - PUID=${{ secrets.plex_puid }}
-      - PGID=${{ secrets.plex_pgid }}
+      - PUID= $PUID
+      - PGID= $PGID
       - TZ=America/Chicago
+    env_file: plexstack.env
     volumes:
-      - overseerr:/config
+      - ./config/overseerr:/config
     ports:
       - 5055:5055
     restart: unless-stopped
 
 volumes:
-  plex:
-    external: true
-  sonarr:
-    external: true
-  radarr:
-    external: true
-  prowlarr:
-    external: true
-  bazarr:
-    external: true
-  overseerr:
-    external: true
-  tv-shows:
+  shows:
     external: true
   cartoons:
     external: true
