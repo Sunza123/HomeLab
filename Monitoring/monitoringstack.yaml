@@ -4,11 +4,12 @@ services:
     image: lscr.io/linuxserver/tautulli:latest
     container_name: tautulli
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID= $PUID
+      - PGID= $PGID
       - TZ=America/Chicago
+    env_file: monitoringstack.yaml
     volumes:
-      - tautulli:/config
+      - ./config/tautulli:/config
     ports:
       - 8181:8181
     restart: unless-stopped
@@ -16,17 +17,10 @@ services:
   uptime-kuma:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
+    env_file: monitoringstack.yaml
     volumes:
-      - uptime-kuma:/app/data
+      - ./config/uptime-kuma:/app/data
     ports:
       - 3001:3001
     restart: always
-
-volumes:
-  tautulli:
-    external: true
-  uptime-kuma:
-    external: true
-  homepage:
-    external: true
 ...
