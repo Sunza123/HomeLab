@@ -7,7 +7,7 @@ services:
       PGID: $PGID
     ports:
       - 3000:3000
-    env_file: .env
+    env_file: homepage.env
     volumes:
       - ./config:/app/config # Make sure your local config directory exists
     restart: unless-stopped
