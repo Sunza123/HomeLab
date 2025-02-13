@@ -126,3 +126,10 @@
           type: uptimekuma
           url: "{{HOMEPAGE_VAR_UPTIMEKUMA_IP}}"
           slug: servers
+    - Printyboi:
+        href: {{HOMEPAGE_VAR_PRINTYBOI_IP}}
+        icon: mainsail.png
+        description: 3D Printing dashboard
+        widget:
+          type: moonraker
+          url: {{HOMEPAGE_VAR_PRINTYBOI_IP}}
