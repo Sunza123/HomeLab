@@ -6,4 +6,5 @@ Homepage container will need to be stopped/started after making changes to the s
 
 Confirmed locally cloning the repository and creating an .env file successfully starts the homepage container. Checking to see if using github secrets is an option to replace a local file.
 
-![image](https://github.com/user-attachments/assets/46aca317-f07e-4486-8e7b-f1459aa23400)
+Current example of my Homepage
+![image](https://github.com/user-attachments/assets/786a513e-d9a2-43fd-9027-f9acf96c0f6e)
