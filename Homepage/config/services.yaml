@@ -88,6 +88,26 @@
           username: "{{HOMEPAGE_VAR_PROXMOX_USER}}"
           password: "{{HOMEPAGE_VAR_PROXMOX_PASS}}"
           #node: pve-1 # optional
+    - CF-BU:
+        href: "{{HOMEPAGE_VAR_PROXBU_IP}}"
+        icon: proxmox.png
+        description: Backup Server for VM's and CT's.
+        widget:
+          type: proxmoxbackupserver
+          url: "{{HOMEPAGE_VAR_PROXBU_IP}}"
+          username: "{{HOMEPAGE_VAR_PROXBU_USER}}"
+          password: "{{HOMEPAGE_VAR_PROXBU_PASS}}"
+    - CF-00:
+        href: "{{HOMEPAGE_VAR_CF00_IP}}"
+        icon: proxmox.png
+        description: Clustered Proxmox Nodes.
+        widget:
+          type: proxmox
+          url: "{{HOMEPAGE_VAR_CF00_IP}}"
+          username: "{{HOMEPAGE_VAR_CF00_USER}}"
+          password: "{{HOMEPAGE_VAR_CF00_PASS}}"
+          #node: pve-1 # optional
+
     - Portainer:
         href: "{{HOMEPAGE_VAR_PORTAINER_IP}}"
         icon: portainer.png
